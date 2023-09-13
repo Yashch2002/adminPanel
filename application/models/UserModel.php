@@ -1,15 +1,15 @@
 <?php
 class UserModel extends CI_Model {
     public function registerUser($data) {
-        $this->db->insert('user_login', $data);
+        $this->db->insert('user', $data);
         return $this->db->insert_id();
     }
  
 
     public function authenticate($username, $password) {
       
-        $this->db->where('user_name', $username);
-        $query = $this->db->get('user_login');
+        $this->db->where('name', $username);
+        $query = $this->db->get('user');
 
         if ($query->num_rows() == 1) {
             $user = $query->row();

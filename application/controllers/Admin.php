@@ -11,11 +11,11 @@ class Admin extends CI_Controller{
 
     public function index()
 	{
-		$this->load->view('login');
+    	$this->load->view('login');
 	}
 
 public function register(){
-    $this->load->view('registration');
+    $this->load->view('rgtryryrtyegistration');
 }
 
 public function dashboard(){
@@ -41,15 +41,15 @@ public function register_user() {
     //         $file_data = $this->upload->data();
 
             // Get other registration data
-            $fullname = $this->input->post('fullname');
+            $name = $this->input->post('fullname');
             $password = $this->input->post('password');
             $role = $this->input->post('role');
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
             // Perform user registration logic, including saving the file path in the database
             $this->load->model('UserModel'); // Load your UserModel
             $registration_data = array(
-                'user_name' => $fullname,
-                'user_password' => $hashed_password,
+                'name' => $name,
+                'password' => $hashed_password,
                 'role' => $role,
                // 'profile_photo' => $file_data['file_name'] // Save the file name in the database
             );
